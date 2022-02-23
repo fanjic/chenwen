@@ -4,6 +4,8 @@ import com.chen.chenwen.util.RedisUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @ApiModel("ApiModel")
 public class TestController {
 
-
+    private static final Logger logger = LoggerFactory.getLogger(TestController.class);
 
     @Autowired
     private RedisUtil redisUtil;
@@ -42,6 +44,13 @@ public class TestController {
     @ApiOperation("测试log日志生成api")
     public String testLog() {
 
+        logger.debug("=====>测试日志debug级别打印<====");
+        logger.info("=====>测试日志info级别打印<=====");
+        logger.error("=====>测试日志error级别打印<====");
+        logger.warn("=====>测试日志warn级别打印<=====");
+
+        String csdn = "https://ethereum.blog.csdn.net/article/details/104977666";
+        logger.info("这篇博客的访问地址：{}",csdn);
         return "测试log日志生成api";
     }
 }
