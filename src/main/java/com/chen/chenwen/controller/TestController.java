@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 @ApiModel("ApiModel")
 public class TestController {
 
+
+
     @Autowired
     private RedisUtil redisUtil;
 
@@ -26,13 +28,20 @@ public class TestController {
         return "hello";
     }
 
-    @GetMapping("test1")
-    @ApiOperation(value = "测试redis类接口")
+    @GetMapping("testRedis")
+    @ApiOperation(value = "测试redis工具类接口")
     public String test1() {
         String result = "";
         redisUtil.set("fanjic","chenwen");
         result = (String) redisUtil.get("fanjic");
         System.out.println(result);
         return result;
+    }
+
+    @GetMapping("testLog")
+    @ApiOperation("测试log日志生成api")
+    public String testLog() {
+
+        return "测试log日志生成api";
     }
 }
