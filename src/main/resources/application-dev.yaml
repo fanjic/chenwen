@@ -1,2 +1,17 @@
 server:
-  port: 8881
+  port: 8882
+  #redis配置
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    timeout: 2000
+    lettuce:
+      pool:
+        min-idle: 0
+        max-idle: 8
+        max-active: 8
+        max-wait: -1ms
+#    password: 8690236
+logging:
+  config: classpath:logback.xml

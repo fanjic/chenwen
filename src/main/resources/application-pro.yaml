@@ -1,4 +1,4 @@
 server:
-  port: 8882
+  port: 8883
   servlet:
     context-path: /chenwen
