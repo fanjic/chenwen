@@ -1,4 +1,4 @@
-package com.chen.chenwen.util;
+package com.chen.chenwen.common.util;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.*;

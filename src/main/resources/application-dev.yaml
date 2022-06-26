@@ -13,5 +13,31 @@ server:
         max-active: 8
         max-wait: -1ms
 #    password: 8690236
-logging:
-  config: classpath:logback.xml
+mvc:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:3306/fan?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    username: root
+    password: 8690236
+
+mybatis-plus:
+  #扫描 *mapper.xml 文件
+  mapper-locations: classpath:mapper/*.xml
+  #如果不使用type-aliases-package，则在每个实体类前加上@Component即可
+  type-aliases-package: com.chen.chenwen.entity
+  configuration:
+    #自动转化命名
+    map-underscore-to-camel-case: true
+    #如果查询结果中包含空值的列，则 MyBatis 在映射的时候，不会映射这个字段
+    call-setters-on-nulls: true
+    #这个配置会将执行的sql打印出来，在开发或测试的时候可以用
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto

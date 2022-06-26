@@ -1,4 +1,3 @@
-${AnsiColor.BRIGHT_MAGENTA}
                                            _ooAoo_
                                           o9999999o
                                           88" . "88
@@ -17,6 +16,4 @@ ${AnsiColor.BRIGHT_MAGENTA}
                              \  \ `-.   \_ __\ /__ _/   .-` /  /
                         ======`-.____`-.___\_____/___.-`____.-'======
                                            `=---='
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                                   学无止尽       终成大佬
-                    Spring Boot Version: ${spring-boot.version}${spring-boot.formatted-version}
+                        ^^^^^^^^^^^^^^^^^^^^学无止尽^^^^^^^^^^^^^^^^^^^^^

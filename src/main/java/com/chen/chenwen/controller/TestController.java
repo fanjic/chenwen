@@ -1,16 +1,25 @@
 package com.chen.chenwen.controller;
 
-import com.chen.chenwen.util.RedisUtil;
+import com.chen.chenwen.common.util.RedisUtil;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.pdf.BaseFont;
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfReader;
+import com.itextpdf.text.pdf.PdfStamper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 @RestController
 @RequestMapping("/test")
@@ -53,4 +62,13 @@ public class TestController {
         logger.info("这篇博客的访问地址：{}",csdn);
         return "测试log日志生成api";
     }
+
+    @GetMapping("doSign")
+    @ApiOperation(value = "图片合成pdf（签字）")
+    public void doSign() {
+
+
+    }
+
+
 }

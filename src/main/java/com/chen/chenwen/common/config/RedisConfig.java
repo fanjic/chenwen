@@ -1,4 +1,4 @@
-package com.chen.chenwen.config;
+package com.chen.chenwen.common.config;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;

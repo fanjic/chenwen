@@ -1,4 +1,4 @@
-package com.chen.chenwen.config;
+package com.chen.chenwen.common.config;
 
 import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 import org.springframework.context.annotation.Bean;

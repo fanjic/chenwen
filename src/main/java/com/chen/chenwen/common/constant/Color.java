@@ -1,4 +1,4 @@
-package com.chen.chenwen.constant;
+package com.chen.chenwen.common.constant;
 
 import lombok.Getter;
 import lombok.Setter;

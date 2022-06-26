@@ -1,22 +1,53 @@
 package com.chen.chenwen;
 
-import com.chen.chenwen.constant.Color;
+import com.chen.chenwen.common.constant.Color;
+import com.chen.chenwen.common.util.FileUtil;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class DoSomething {
     public static void main(String[] args) {
-
-        /*List<Integer> list = new ArrayList();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        for (Integer l : list) {
-
-        }*/
-
+        System.out.println("枚举====================");
         System.out.println(Color.YELLOW.getColor());
         System.out.println(Color.getName(2));
+
+        System.out.println("\n"+"时间类，往后三个月====================");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        System.out.println(format.format(new Date()));
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.MONTH, 3);
+        Date future =calendar.getTime();
+        System.out.println(format.format(future));
+
+        System.out.println("\n"+"获取项目根路劲====================");
+        System.out.println(System.getProperty("user.dir"));
+
+        System.out.println("\n"+"图片合入pdf====================");
+        File pdf = new File("C:\\Users\\40484\\Desktop\\do\\file"+File.separator+"签名文件.pdf");
+        File img = new File("C:\\Users\\40484\\Desktop\\do\\file"+File.separator+"桥本环奈.jpg");
+        System.out.println(pdf.getAbsolutePath());
+        String[] path=pdf.getAbsolutePath().split("\\.");
+        String dir2 = path[0];
+        String suffix =  path[1];
+        System.out.println(dir2 +"===="+suffix);
+        // FileUtil.addImageAbsPosition(dir2,suffix,img.getAbsolutePath());
+
+        System.out.println("\n"+"io流转换File文件====================");
+        // byte[] buf=FileUtil.file2byte("C:\\Users\\40484\\Desktop\\do\\file\\签名文件_签字件.pdf");
+        String outPath="C:\\Users\\40484\\Desktop\\do\\file\\demo";
+        String outName="新的已签字文件.pdf";
+        // FileUtil.byte2File(buf,outPath,outName);
+        // 删除文件
+        /*File fileDemo = new File("C:\\Users\\40484\\Desktop\\do\\file\\demo");
+        for (File f : fileDemo.listFiles()) {
+            if(f.isFile()){ f.delete(); } }*/
+
+
+        System.out.println("\n"+"====================");
+
+
     }
 }
