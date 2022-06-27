@@ -54,7 +54,6 @@ public class FileUtil {
         }
     }
 
-
     /*File文件转化io流*/
     public static byte[] file2byte(String filePath) {
         byte[] buffer = null;
