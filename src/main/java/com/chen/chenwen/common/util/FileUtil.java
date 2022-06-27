@@ -15,6 +15,46 @@ import java.io.*;
  * @Date 2022-06-25 19:29
  */
 public class FileUtil {
+
+    /*InputStream转化File*/
+    public static void inputStreamToFile(InputStream ins, File file) {
+        BufferedOutputStream bos = null;
+        BufferedInputStream bis = new BufferedInputStream(ins);
+        try {
+            bos = new BufferedOutputStream(new FileOutputStream(file));
+            int bytesRead = 0;
+            byte[] buffer = new byte[8192];
+            while ((bytesRead = bis.read(buffer, 0, 8192)) != -1) {
+                bos.write(buffer, 0, bytesRead);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (ins != null) {
+                try {
+                    ins.close();
+                } catch (IOException e) {
+                }
+                ins = null;
+            }
+            if (bos != null) {
+                try {
+                    bos.close();
+                } catch (IOException e) {
+                }
+                bos = null;
+            }
+            if (bis != null) {
+                try {
+                    bis.close();
+                } catch (IOException e) {
+                }
+                bis = null;
+            }
+        }
+    }
+
+
     /*File文件转化io流*/
     public static byte[] file2byte(String filePath) {
         byte[] buffer = null;
@@ -80,7 +120,7 @@ public class FileUtil {
             reader = new PdfReader(dir +"."+suffix);
             int totalPages = reader.getNumberOfPages();
             stamp = new PdfStamper(reader,
-                    new FileOutputStream(dir + "_签字件." + suffix));
+                    new FileOutputStream(dir + "_已签字." + suffix));
             BaseFont bf = BaseFont.createFont(BaseFont.HELVETICA,
                     BaseFont.WINANSI, BaseFont.EMBEDDED);
             int currentPage = 1;
