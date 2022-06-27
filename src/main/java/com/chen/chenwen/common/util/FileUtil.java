@@ -54,7 +54,7 @@ public class FileUtil {
         }
     }
 
-    /*File文件转化io流*/
+    /*File文件转化byte[]*/
     public static byte[] file2byte(String filePath) {
         byte[] buffer = null;
         try {
@@ -77,7 +77,7 @@ public class FileUtil {
         return buffer;
     }
 
-    /*File转化io流*/
+    /*byte[]转化File*/
     public static void byte2File(byte[] buf, String filePath, String fileName) {
         BufferedOutputStream bos = null;
         FileOutputStream fos = null;
